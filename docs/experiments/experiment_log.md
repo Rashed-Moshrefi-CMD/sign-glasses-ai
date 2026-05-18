@@ -62,9 +62,21 @@ FPS:
 
 # Planned Initial Experiments
 
-## Experiment 001
-Static gesture recognition using landmark coordinates.
+## Experiment 001 - Landmark Dataset Collection
+Date: 
+2026-05-18
 
+Objective:
+Created first landmark-based gesture dataset using Mediapipe hand tracking.
+
+Status:
+Completed
+
+Notes:
+-Successfully extracted 21 hand landmarks
+-Saved normalized x/y/z coordinates into CSV
+-Implemented label-based data collection
+-Dataset pipeline operational 
 ---
 
 ## Experiment 002
