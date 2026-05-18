@@ -1,6 +1,8 @@
 import cv2
 import os
 from datetime import datetime
+from hand_tracking import HandTracker
+
 
 # This script tests the camera functionality by opening the webcam 
 # feed and allowing the user to save snapshots.
@@ -17,6 +19,10 @@ def main():
     print("Camera opened successfully.")
     print("Press 'q' to quit.")
     print("Press 's' to save a snapshot.")
+
+    # Initialize the hand tracker
+    tracker = HandTracker()
+
     # Create a directory for screenshots if it doesn't exist
     screenshot_dir = os.path.join("data", "screenshots")
     os.makedirs(screenshot_dir, exist_ok=True)
@@ -28,6 +34,11 @@ def main():
         if not ret:
             print("Error: Could not read frame.")
             break
+
+        frame = cv2.flip(frame, 1)  # Flip the frame horizontally for a mirror effect
+
+        results = tracker.process_frame(frame)
+        frame = tracker.draw_landmarks(frame, results)
         # Display the frame in a window
         cv2.imshow("Sign Glasses AI - Camera Test", frame)
         # Wait for a key press and check if it's 'q' or 's'
