@@ -1,3 +1,29 @@
+"""
+Dataset collection module for gesture recognition.
+
+Responsibilities:
+- Capture hand landmark data
+- Associate landmarks with gesture labels
+- Save structured data into CSV format
+- Manage dataset generation workflow
+
+Current Dataset Format:
+- label
+- timestamp
+- hand index
+- landmark coordinates
+
+This module creates the training dataset
+for gesture classification models.
+
+Future Improvements:
+- Automatic labeling modes
+- Sequence recording
+- Video recording support
+- Dataset balancing tools
+"""
+
+
 from pathlib import Path
 import cv2
 import mediapipe as mp

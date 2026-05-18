@@ -1,3 +1,22 @@
+"""
+Main application entry point for Sign Glasses AI.
+
+Responsibilities:
+- Initialize system components
+- Run real-time processing loop
+- Coordinate camera, tracking, and inference
+- Handle user interaction
+
+This file acts as the orchestration layer
+for the entire application.
+
+Future Improvements:
+- UI overlays
+- AR visualization
+- Settings management
+- Performance monitoring
+"""
+
 import cv2
 import os
 from datetime import datetime
