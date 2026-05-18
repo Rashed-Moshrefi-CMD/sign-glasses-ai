@@ -57,3 +57,26 @@ class HandTracker:
                 cv2.circle(frame, (x, y), 4, (0, 255, 0), -1)
 
         return frame
+    
+    def extract_landmarks(self, result):
+        """
+        Extract hand landmarks as numeric data.
+        Returns:
+            A list of hands.
+            Each hand is a list of 21 landmarks.
+            Each landmark is [x,y,z]
+        """
+        all_hands = []
+
+        if not result.hand_landmarks:
+            return all_hands
+        
+        for hand_landmarks in result.hand_landmarks:
+            single_hand =[]
+
+            for landmark in hand_landmarks:
+
+                single_hand.append([landmark.x, landmark.y, landmark.z])
+
+            all_hands.append(single_hand)
+        return all_hands

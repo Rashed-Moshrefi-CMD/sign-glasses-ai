@@ -39,6 +39,12 @@ def main():
 
         results = tracker.process_frame(frame)
         frame = tracker.draw_landmarks(frame, results)
+
+        landmarks = tracker.extract_landmarks(results)
+
+        if landmarks:
+            print("Hand landmarks detected:")
+            print(landmarks[0][0])
         # Display the frame in a window
         cv2.imshow("Sign Glasses AI - Camera Test", frame)
         # Wait for a key press and check if it's 'q' or 's'
